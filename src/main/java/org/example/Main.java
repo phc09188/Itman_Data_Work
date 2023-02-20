@@ -44,6 +44,11 @@ public class Main {
 
     //처음 발견된 key의 경우 파일을 생성하고 데이터를 추가합니다.
     private static void createAndAppend(String type, String name, List<String> appendContent) throws IOException {
+        File fileDirectory = new File("C:\\Users\\itman\\Desktop\\result\\저압\\" + type);
+        if(!fileDirectory.exists()){
+           if(!fileDirectory.mkdir())
+               System.out.println(type + "폴더 생성 실패");
+        }
         File csvFile = roadFile(roadFileAddress + type, name);
         FileOutputStream writer = new FileOutputStream(csvFile);
         OutputStreamWriter out = new OutputStreamWriter(writer, "CP949");
