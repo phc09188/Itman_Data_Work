@@ -110,6 +110,7 @@ public class DataMergeService {
         for (Map.Entry<String, Double> entry : map.entrySet()) {
             out.write(entry.getKey() + "," + String.valueOf(Math.round(entry.getValue() * 1000) / 1000.0) + "\r\n");
         }
+        out.flush();
         outStreamsMap.put(file.getName().substring(0, file.getName().length() - 4), new OutStreams(out, writer));
     }
 
